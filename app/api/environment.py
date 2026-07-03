@@ -15,8 +15,7 @@ from app.services.environment_service import (
     delete_environment,
 )
 
-router = APIRouter(prefix="/environments", tags=["Environments"])
-
+router = APIRouter()
 
 @router.post("/", response_model=EnvironmentResponse)
 def create(environment: EnvironmentCreate, db: Session = Depends(get_db)):

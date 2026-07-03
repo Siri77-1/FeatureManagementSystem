@@ -43,3 +43,10 @@ class AuditLog(Base):
     old_value = Column(String)
     new_value = Column(String)
     timestamp = Column(DateTime(timezone=True), server_default=func.now())
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, nullable=False)
+    email = Column(String, unique=True, nullable=False)
+    password = Column(String, nullable=False)
